@@ -1,54 +1,54 @@
-# dotnet on Ubuntu
+### Dotnet on Ubuntu
 
-## Mono project
+#### Mono project
 
-### Build
+##### Build
 ```
 xbuild Framework.sln
 xbuild Framework.csproj
 ```
-### Run
+##### Run
 ```
 mono Framework.exe
 ```
 
-## Installed .NET
+#### Installed .NET
 ```
 sudo apt --installed list | grep "dotnet"
 sudo apt-get remove --purge dotnet-host
 whereis dotnet
 ```
 
-## Sqlserver
+#### Sqlserver
 ```
 systemctl status mssql-server --no-pager
 stop
 sudo systemctl stop mssql-server
 ```
 
-## Kill procss
+#### Kill procss
 ```
 fuser -k 5001/tcp
 ```
 
-## Make executable
+#### Make executable
 ```
 chmod +x end
 ```
 
 
-## Remove
+#### Remove
 ```
 sudo apt purge code
 sudo apt autoremove
 ```
 
-## Delete files
+#### Delete files
 ```
 m -r
 ```
 
-## Install dotnet
+#### Install dotnet
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -62,22 +62,22 @@ sudo apt-get update
 sudo apt-get install dotnet-sdk-5.0
 ```
 
-## Cli dotnet
+#### Cli dotnet
 ```
 dotnet new --list
 dotnet new mvc --auth Individual 
 sudo apt install
 ```
 
-## Curl
+#### Curl
 ```
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://localhost:5001/Login/
 POST:
 curl --data "param1=value1&param2=value2" http://hostname/resource
 ```
 
-## Docker
-### Install docker
+#### Docker
+##### Install docker
 ```
 sudo apt-get install curl
 
@@ -122,39 +122,39 @@ sudo chmod +x /usr/local/bin/docker-compose
 Check Docker compose is installed
 docker-compose --version
 ```
-### Delete docker volume
+##### Delete docker volume
 ```
 container
 docker rm -vf $(docker ps -a -q)
 images
 docker rmi -f $(docker images -a -q)
 ```
-### Tes
+##### Tes
 ```
 sudo dockerd
 ```
-### Build
+##### Build
 ```
 docker build -t maimg:latest .
 ```
-### Run
+##### Run
 ```
 docker run -p 2334:80 saletag:latest
 or
 docker run -it -p 80:80 --rm vueproj:latest
 ```
 
-### Compose
+##### Compose
 ```
 docker-compose up --build
 ```
 
-### Dangling
+##### Dangling
 ```
 docker images --filter dangling=true #lists all images that are dangling and has no pointer to it
 docker rmi `docker images --filter dangling=true -q` #Removes all those images.
 ```
-### gloabl run in linux with spec sdk
+##### gloabl run in linux with spec sdk
 ```
 global.json
 {
