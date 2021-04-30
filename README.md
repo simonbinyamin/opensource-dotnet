@@ -163,3 +163,21 @@ global.json
   }
 }
 ```
+#### VM
+##### Start machine
+```
+VBoxManage startvm "Win10"
+```
+
+##### Start application
+```
+VBoxManage guestcontrol Win10 start "c:\\windows\\system32\\calc.exe" --username test //or x.bat
+```
+##### Copy files
+```
+VBoxManage guestcontrol Win10 copyto bin "c:\\inetpub\\wwwroot\\test\\" --username test
+```
+##### Poweroff machine
+```
+VBoxManage controlvm "Win10" poweroff --type headless
+```
