@@ -166,7 +166,7 @@ global.json
 #### VM
 ##### Start machine
 ```
-VBoxManage startvm "Win10"
+VBoxManage startvm "Win10" --type headless
 ```
 
 ##### Start application
