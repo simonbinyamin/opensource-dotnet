@@ -1,3 +1,60 @@
+### Vim
+```
+:NERDTree
+:q!
+:qa
+ctrl+p search
+MRU most resent files
+q quit
+w save
+
+```
+
+### Devenv
+```
+devenv /run "MvcFramework.sln"
+```
+### Ngrok
+
+```
+ngrok http https://localhost:44309 -host-header="localhost:44309"
+```
+
+### SSH
+
+#### SSH setup
+#### Windows
+```
+Generate a new ssh key
+ssh-keygen -t rsa -C "your@email"
+
+Once you have your key set in:
+home/.ssh directory (or Users/<your user>.ssh under windows), 
+open it and copy the content
+```
+
+#### Linux
+```
+ssh-keygen
+Output
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/yourusername/.ssh/id_rsa):
+ls ~/.ssh/id_*
+cd .ssh
+code .
+```
+
+#### SSH server
+```
+ssh uname@127.0.0.1 -p 2222
+```
+
+### GIT
+```
+git diff file_2.rb
+git restore file.cs
+git branch -a
+```
 ### Dotnet on Ubuntu
 
 #### Mono project
