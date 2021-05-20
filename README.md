@@ -1,9 +1,27 @@
+### MangoDB
+#### Install
+
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install mongodb
+sudo systemctl status mongodb
+ 
+
+```
+#### Start/Stop
+```
+sudo systemctl start mongodb
+sudo systemctl stop mongodb
+sudo mongo
+```
 ### Vim
 ```
 :NERDTree
 :q!
 :qa
 ctrl+p search
+ctrl+x ctrl+o autocomp
 MRU most resent files
 q quit
 w save
@@ -17,7 +35,7 @@ devenv /run "MvcFramework.sln"
 ### Ngrok
 
 ```
-ngrok http https://localhost:44309 -host-header="localhost:44309"
+ngrok http https://localhost:5001 -host-header="localhost:5001"
 ```
 
 ### SSH
