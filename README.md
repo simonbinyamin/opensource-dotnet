@@ -78,6 +78,8 @@ ssh uname@127.0.0.1 -p 2222
 git diff file_2.rb
 git restore file.cs
 git branch -a
+git push origin --delete dev
+
 ```
 ### Dotnet on Ubuntu
 
@@ -217,6 +219,7 @@ sudo dockerd
 ##### Build
 ```
 docker build -t maimg:latest .
+docker build -t testhttps:latest -f TestHttps/Dockerfile .
 ```
 ##### Run
 ```
