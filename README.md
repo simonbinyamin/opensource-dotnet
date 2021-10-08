@@ -265,3 +265,104 @@ VBoxManage guestcontrol Win10 copyto bin "c:\\inetpub\\wwwroot\\test\\" --userna
 ```
 VBoxManage controlvm "Win10" poweroff --type headless
 ```
+
+
+#### Build and Deploy Angular to Azure app service
+
+```
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+
+
+trigger:
+- production
+
+variables:
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: 'Example (95656-6565-454)'
+  
+  # Environment name
+  environmentName: 'appservicename'
+
+  # Web app name
+  webAppName: 'appservicename'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: BuildJob
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '14.x'
+        displayName: 'Install Node.js'
+
+      - script: |
+          cd '$(System.DefaultWorkingDirectory)/'
+          npm install -g @angular/cli
+          npm install
+          ng build --prod
+        displayName: 'npm install and build'
+      - task: ArchiveFiles@2
+        displayName: 'Archive files'
+        inputs:
+          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/'
+          includeRootFolder: false
+          archiveType: zip
+          archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+          replaceExistingArchive: true
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'
+
+- stage: Approve
+  displayName: 'approve'
+  dependsOn: Build
+  condition: succeeded()
+  pool: 
+    vmImage: ubuntu-latest
+
+  jobs:
+  - job: waitForValidation
+    displayName: Wait for external validation  
+    pool: server    
+    timeoutInMinutes: 4320 # job times out in 3 days
+    steps:   
+    - task: ManualValidation@0
+      timeoutInMinutes: 1440 # task times out in 1 day
+      inputs:
+          notifyUsers: |
+              simonbinyamin@gmail.com
+          instructions: 'Please validate the build configuration and resume'
+          onTimeout: 'resume'
+
+- stage: Deploy
+  displayName: 'Deploy Web App'
+  dependsOn: Approve
+  condition: succeeded()
+  jobs:
+  - deployment: DeploymentJob
+    pool:
+      vmImage: 'ubuntu-20.04'
+    environment: $(environmentName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:     
+          - task: AzureWebApp@1
+            displayName: 'Deploy Azure Web App : $(webAppName)'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appName: $(webAppName)
+#              appType: webAppLinux
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+```
