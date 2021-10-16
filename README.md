@@ -266,7 +266,40 @@ VBoxManage guestcontrol Win10 copyto bin "c:\\inetpub\\wwwroot\\test\\" --userna
 VBoxManage controlvm "Win10" poweroff --type headless
 ```
 
+#### JSON as object
+```
+        public async Task<Dictionary<string, blob>> GetData()
+        {
+            Dictionary<string, blob> keyValuePairs = new Dictionary<string, blob>();
+            string resultContentWeath = "";
 
+            HttpResponseMessage weatherresponse = await client.GetAsync("urifile.json");
+
+            if (weatherresponse.IsSuccessStatusCode)
+            {
+                resultContentWeath = await weatherresponse.Content.ReadAsStringAsync();
+            }
+
+            var json = JObject.Parse(resultContentWeath);
+            var feat = json?["blobs"] ?? "";
+
+
+            foreach (dynamic entry in feat)
+            {
+                string name = entry.Name;
+                dynamic value = entry.Value;
+
+                
+                keyValuePairs.Add(name, value.ToObject<blob>());
+            }
+
+
+
+            return keyValuePairs;
+
+
+        }
+```       
 #### Build and Deploy Angular to Azure app service
 
 ```
