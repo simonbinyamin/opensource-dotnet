@@ -232,7 +232,33 @@ docker run -it -p 80:80 --rm vueproj:latest
 ```
 docker-compose up --build
 ```
+###### docker-compose.yml
+```
+version: '3.4'
 
+services:
+  projectname:
+    image: ${DOCKER_REGISTRY-}projectname
+    build:
+      context: .
+      dockerfile: projectname/Dockerfile
+
+```
+####### docker-compose.override.yml
+```
+version: '3.4'
+
+services:
+  projectname:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "51080:80"
+      - "51443:443"
+
+
+```
 ##### Dangling
 ```
 docker images --filter dangling=true #lists all images that are dangling and has no pointer to it
