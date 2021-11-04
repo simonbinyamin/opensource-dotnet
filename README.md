@@ -1,6 +1,7 @@
 ### Manage vscode
 
 sudo npm install vsce -g
+<br />
 vsce package
 https://marketplace.visualstudio.com/manage/publishers/{name}
 
