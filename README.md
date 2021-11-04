@@ -5,6 +5,8 @@ vsce package
 https://marketplace.visualstudio.com/manage/publishers/{name}
 ```
 
+
+
 ### MongoDB
 #### Install
 ```
@@ -36,13 +38,11 @@ w save
 devenv /run "MvcFramework.sln"
 ```
 ### Ngrok
-
 ```
 ngrok http https://localhost:5001 -host-header="localhost:5001"
 ```
 
 ### SSH
-
 #### SSH setup
 #### Windows
 ```
@@ -79,9 +79,7 @@ git push origin --delete dev
 
 ```
 ### Dotnet on Ubuntu
-
 #### Mono project
-
 ##### Build
 ```
 xbuild Framework.sln
@@ -182,7 +180,7 @@ Should output something similar to:
 
 docker-ce:
    Installed: (none)
-...
+
 Install the docker-ce package
 sudo apt-get install -y docker-ce
 
@@ -239,7 +237,6 @@ services:
     build:
       context: .
       dockerfile: projectname/Dockerfile
-
 ```
 ###### docker-compose.override.yml
 ```
@@ -253,8 +250,6 @@ services:
     ports:
       - "51080:80"
       - "51443:443"
-
-
 ```
 ##### Dangling
 ```
@@ -324,7 +319,6 @@ VBoxManage controlvm "Win10" poweroff --type headless
         }
 ```       
 #### Build and Deploy Angular to Azure app service
-
 ```
 #Node.js with Angular
 #Build a Node.js project that uses Angular.
