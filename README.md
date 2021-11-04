@@ -4,17 +4,17 @@ sudo npm install vsce -g
 vsce package 
 https://marketplace.visualstudio.com/manage/publishers/{name}
 </pre>
-### MongoDB
-#### Install
 
-```
+<h3> MongoDB </h3>
+<h4> Install </h4>
+
+<pre>
 sudo apt update
 sudo apt upgrade
 sudo apt install mongodb
 sudo systemctl status mongodb
- 
+</pre>
 
-```
 #### Start/Stop
 ```
 sudo systemctl start mongodb
