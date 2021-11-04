@@ -32,7 +32,6 @@ MRU most resent files
 q quit
 w save
 ```
-
 ### Devenv
 ```
 devenv /run "MvcFramework.sln"
