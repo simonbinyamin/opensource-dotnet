@@ -1,4 +1,5 @@
 ### Manage vscode
+
 ```language-js
 sudo npm install vsce -g
 vsce package
@@ -9,6 +10,7 @@ https://marketplace.visualstudio.com/manage/publishers/{name}
 
 ### MongoDB
 #### Install
+
 ```language-js
 sudo apt update
 sudo apt upgrade
