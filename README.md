@@ -1,10 +1,9 @@
 ### Manage vscode
 ```
 sudo npm install vsce -g
-vsce package 
+vsce package
 https://marketplace.visualstudio.com/manage/publishers/{name}
 ```
-
 ### MongoDB
 #### Install
 
@@ -13,15 +12,15 @@ sudo apt update
 sudo apt upgrade
 sudo apt install mongodb
 sudo systemctl status mongodb
-```
+ 
 
+```
 #### Start/Stop
 ```
 sudo systemctl start mongodb
 sudo systemctl stop mongodb
 sudo mongo
 ```
-
 ### Vim
 ```
 :NERDTree
@@ -36,7 +35,7 @@ w save
 ```
 
 ### Devenv
-<pre>
+```
 devenv /run "MvcFramework.sln"
 ```
 ### Ngrok
@@ -47,8 +46,8 @@ ngrok http https://localhost:5001 -host-header="localhost:5001"
 
 ### SSH
 
-<h4> SSH setup
-<h4> Windows
+#### SSH setup
+#### Windows
 ```
 Generate a new ssh key
 ssh-keygen -t rsa -C "your@email"
@@ -58,7 +57,7 @@ home/.ssh directory (or Users/<your user>.ssh under windows),
 open it and copy the content
 ```
 
-<h4> Linux
+#### Linux
 ```
 ssh-keygen
 Output
@@ -69,7 +68,7 @@ cd .ssh
 code .
 ```
 
-<h4> SSH server
+#### SSH server
 ```
 ssh uname@127.0.0.1 -p 2222
 ```
@@ -84,55 +83,55 @@ git push origin --delete dev
 ```
 ### Dotnet on Ubuntu
 
-<h4> Mono project
+#### Mono project
 
-<h5> Build
+##### Build
 ```
 xbuild Framework.sln
 xbuild Framework.csproj
 ```
-<h5> Run
+##### Run
 ```
 mono Framework.exe
 ```
 
-<h4> Installed .NET
+#### Installed .NET
 ```
 sudo apt --installed list | grep "dotnet"
 sudo apt-get remove --purge dotnet-host
 whereis dotnet
 ```
 
-<h4> Sqlserver
+#### Sqlserver
 ```
 systemctl status mssql-server --no-pager
 stop
 sudo systemctl stop mssql-server
 ```
 
-<h4> Kill procss
+#### Kill procss
 ```
 fuser -k 5001/tcp
 ```
 
-<h4> Make executable
+#### Make executable
 ```
 chmod +x end
 ```
 
 
-<h4> Remove
+#### Remove
 ```
 sudo apt purge code
 sudo apt autoremove
 ```
 
-<h4> Delete files
+#### Delete files
 ```
 m -r
 ```
 
-<h4> Install dotnet
+#### Install dotnet
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -146,22 +145,22 @@ sudo apt-get update
 sudo apt-get install dotnet-sdk-5.0
 ```
 
-<h4> Cli dotnet
+#### Cli dotnet
 ```
 dotnet new --list
 dotnet new mvc --auth Individual 
 sudo apt install
 ```
 
-<h4> Curl
+#### Curl
 ```
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://localhost:5001/Login/
 POST:
 curl --data "param1=value1&param2=value2" http://hostname/resource
 ```
 
-<h4> Docker
-<h5> Install docker
+#### Docker
+##### Install docker
 ```
 sudo apt-get install curl
 
@@ -206,34 +205,34 @@ sudo chmod +x /usr/local/bin/docker-compose
 Check Docker compose is installed
 docker-compose --version
 ```
-<h5> Delete docker volume
+##### Delete docker volume
 ```
 container
 docker rm -vf $(docker ps -a -q)
 images
 docker rmi -f $(docker images -a -q)
 ```
-<h5> Tes
+##### Tes
 ```
 sudo dockerd
 ```
-<h5> Build
+##### Build
 ```
 docker build -t maimg:latest .
 docker build -t testhttps:latest -f TestHttps/Dockerfile .
 ```
-<h5> Run
+##### Run
 ```
 docker run -p 2334:80 saletag:latest
 or
 docker run -it -p 80:80 --rm vueproj:latest
 ```
 
-<h5> Compose
+##### Compose
 ```
 docker-compose up --build
 ```
-<h6> docker-compose.yml
+###### docker-compose.yml
 ```
 version: '3.4'
 
@@ -245,7 +244,7 @@ services:
       dockerfile: projectname/Dockerfile
 
 ```
-<h7> docker-compose.override.yml
+####### docker-compose.override.yml
 ```
 version: '3.4'
 
@@ -260,12 +259,12 @@ services:
 
 
 ```
-<h5> Dangling
+##### Dangling
 ```
 docker images --filter dangling=true #lists all images that are dangling and has no pointer to it
 docker rmi `docker images --filter dangling=true -q` #Removes all those images.
 ```
-<h5> gloabl run in linux with spec sdk
+##### gloabl run in linux with spec sdk
 ```
 global.json
 {
@@ -274,26 +273,26 @@ global.json
   }
 }
 ```
-<h4> VM
-<h5> Start machine
+#### VM
+##### Start machine
 ```
 VBoxManage startvm "Win10" --type headless
 ```
 
-<h5> Start application
+##### Start application
 ```
 VBoxManage guestcontrol Win10 start "c:\\windows\\system32\\calc.exe" --username test //or x.bat
 ```
-<h5> Copy files
+##### Copy files
 ```
 VBoxManage guestcontrol Win10 copyto bin "c:\\inetpub\\wwwroot\\test\\" --username test
 ```
-<h5> Poweroff machine
+##### Poweroff machine
 ```
 VBoxManage controlvm "Win10" poweroff --type headless
 ```
 
-<h4> JSON as object
+#### JSON as object
 ```
         public async Task<Dictionary<string, blob>> GetData()
         {
@@ -327,7 +326,7 @@ VBoxManage controlvm "Win10" poweroff --type headless
 
         }
 ```       
-<h4> Build and Deploy Angular to Azure app service
+#### Build and Deploy Angular to Azure app service
 
 ```
 # Node.js with Angular
