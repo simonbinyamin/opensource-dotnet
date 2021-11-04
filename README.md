@@ -1,20 +1,17 @@
 ### Manage vscode
 ```
-    sudo npm install vsce -g
-    vsce package
-    https://marketplace.visualstudio.com/manage/publishers/{name}
+sudo npm install vsce -g
+vsce package
+https://marketplace.visualstudio.com/manage/publishers/{name}
 ```
 
 ### MongoDB
 #### Install
-
 ```
 sudo apt update
 sudo apt upgrade
 sudo apt install mongodb
 sudo systemctl status mongodb
- 
-
 ```
 #### Start/Stop
 ```
@@ -32,7 +29,6 @@ ctrl+x ctrl+o autocomp
 MRU most resent files
 q quit
 w save
-
 ```
 
 ### Devenv
