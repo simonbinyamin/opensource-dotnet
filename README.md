@@ -1,5 +1,5 @@
 ### Manage vscode
-``` vs
+```
     sudo npm install vsce -g
     vsce package
     https://marketplace.visualstudio.com/manage/publishers/{name}
@@ -245,7 +245,7 @@ services:
       dockerfile: projectname/Dockerfile
 
 ```
-####### docker-compose.override.yml
+###### docker-compose.override.yml
 ```
 version: '3.4'
 
@@ -330,10 +330,10 @@ VBoxManage controlvm "Win10" poweroff --type headless
 #### Build and Deploy Angular to Azure app service
 
 ```
-# Node.js with Angular
-# Build a Node.js project that uses Angular.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+#Node.js with Angular
+#Build a Node.js project that uses Angular.
+#Add steps that analyze code, save build artifacts, deploy, and more:
+#https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 
 
@@ -341,13 +341,13 @@ trigger:
 - production
 
 variables:
-  # Azure Resource Manager connection created during pipeline creation
+  #Azure Resource Manager connection created during pipeline creation
   azureSubscription: 'Example (95656-6565-454)'
   
-  # Environment name
+  #Environment name
   environmentName: 'appservicename'
 
-  # Web app name
+  #Web app name
   webAppName: 'appservicename'
 
 stages:
@@ -423,6 +423,6 @@ stages:
             inputs:
               azureSubscription: $(azureSubscription)
               appName: $(webAppName)
-#              appType: webAppLinux
+              #appType: webAppLinux
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
 ```
