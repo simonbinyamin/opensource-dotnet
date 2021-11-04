@@ -1,9 +1,7 @@
 ### Manage vscode
 <pre>
 sudo npm install vsce -g
-<br/>
 vsce package 
-<br/>
 https://marketplace.visualstudio.com/manage/publishers/{name}
 </pre>
 ### MongoDB
