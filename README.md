@@ -11,7 +11,7 @@ https://marketplace.visualstudio.com/manage/publishers/{name}
 ### MongoDB
 #### Install
 
-```language-js
+```
 sudo apt update
 sudo apt upgrade
 sudo apt install mongodb
