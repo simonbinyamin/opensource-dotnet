@@ -297,8 +297,8 @@ services:
 ##### Dangling
 
 ```
-docker images --filter dangling=true #lists all images that are dangling and has no pointer to it
-docker rmi `docker images --filter dangling=true -q` #Removes all those images.
+docker images --filter dangling=true //lists all images that are dangling and has no pointer to it
+docker rmi `docker images --filter dangling=true -q` //Removes all those images.
 ```
 
 ##### gloabl run in linux with spec sdk
@@ -378,10 +378,10 @@ VBoxManage controlvm "Win10" poweroff --type headless
 #### Build and Deploy Angular to Azure app service
 
 ```
-#Node.js with Angular
-#Build a Node.js project that uses Angular.
-#Add steps that analyze code, save build artifacts, deploy, and more:
-#https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+//Node.js with Angular
+//Build a Node.js project that uses Angular.
+//Add steps that analyze code, save build artifacts, deploy, and more:
+//https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 
 
@@ -389,13 +389,13 @@ trigger:
 - production
 
 variables:
-  #Azure Resource Manager connection created during pipeline creation
+  //Azure Resource Manager connection created during pipeline creation
   azureSubscription: 'Example (95656-6565-454)'
   
-  #Environment name
+  //Environment name
   environmentName: 'appservicename'
 
-  #Web app name
+  //Web app name
   webAppName: 'appservicename'
 
 stages:
@@ -471,6 +471,6 @@ stages:
             inputs:
               azureSubscription: $(azureSubscription)
               appName: $(webAppName)
-              #appType: webAppLinux
+              //appType: webAppLinux
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
 ```
