@@ -443,10 +443,10 @@ stages:
   - job: waitForValidation
     displayName: Wait for external validation  
     pool: server    
-    timeoutInMinutes: 4320 # job times out in 3 days
+    timeoutInMinutes: 4320 // job times out in 3 days
     steps:   
     - task: ManualValidation@0
-      timeoutInMinutes: 1440 # task times out in 1 day
+      timeoutInMinutes: 1440 // task times out in 1 day
       inputs:
           notifyUsers: |
               simonbinyamin@gmail.com
