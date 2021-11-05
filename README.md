@@ -382,9 +382,6 @@ VBoxManage controlvm "Win10" poweroff --type headless
 //Build a Node.js project that uses Angular.
 //Add steps that analyze code, save build artifacts, deploy, and more:
 //https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
-
-
 trigger:
 - production
 
@@ -397,7 +394,6 @@ variables:
 
   //Web app name
   webAppName: 'appservicename'
-
 stages:
 - stage: Build
   displayName: Build stage
