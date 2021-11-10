@@ -1,3 +1,26 @@
+### Kubernetes
+
+```
+kubectl apply -f ./k8s/deployment.yml
+kubectl get deployments --namespace test
+kubectl get pods --namespace test
+kubectl logs test-app-worker-05679b4b8sscd-l8ck0p //show application
+kubectl attach test-app-worker-05679b4b8sscd-l8ck0p --namespace test //live
+kubectl exec test-app-worker-05679b4b8sscd-l8ck0p -it --namespace test -- bash //login
+```
+
+
+
+### Azure az login
+
+```
+az account set --subscription $NEW_SUB" //change account
+az aks list -o table
+az aks get-credentials --name (here) --resource-group (here) //kubectl login
+```
+
+
+
 ### Manage vscode
 
 ```
